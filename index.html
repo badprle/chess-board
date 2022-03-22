@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chess table</title>
+</head>
+<body>
+<div id="table">
+</div>
+
+<script>
+    let i, j
+    let data
+    let table = document.querySelector('#table');
+    let whiteBlockStyle = 'display:inline-block; height: 50px; width: 50px; color: black; padding: 5px; border: 1px solid black'
+    let blackBlockStyle = 'display:inline-block; height: 50px; width: 50px; color: white; background-color: black; padding: 5px; border: 1px solid black'
+    for (i = 0; i <= 7; i++) {
+        // console.log('i: ', i)
+        for (j = 1; j <= 8; j++) {
+            // console.log('j: ', j)
+
+            if (i % 2 === 1) {
+                if (j % 2 === 1) {
+                    if (j % 8 === 0) {
+                        data = '<span style="' + blackBlockStyle + '">' + (i * 8 + j) + '</span><br>'
+                    } else {
+                        data = '<span style="' + blackBlockStyle + '">' + (i * 8 + j) + '</span>'
+                    }
+                } else {
+                    if (j % 8 === 0) {
+                        data = '<span style="' + whiteBlockStyle + '">' + (i * 8 + j) + '</span><br>'
+                    } else {
+                        data = '<span style="' + whiteBlockStyle + '">' + (i * 8 + j) + '</span>'
+                    }
+                }
+            } else {
+                if (j % 2 === 1) {
+                    if (j % 8 === 0) {
+                        data = '<span style="' + whiteBlockStyle + '">' + (i * 8 + j) + '</span><br>'
+                    } else {
+                        data = '<span style="' + whiteBlockStyle + '">' + (i * 8 + j) + '</span>'
+                    }
+                } else {
+                    if (j % 8 === 0) {
+                        data = '<span style="' + blackBlockStyle + '">' + (i * 8 + j) + '</span><br>'
+                    } else {
+                        data = '<span style="' + blackBlockStyle + '">' + (i * 8 + j) + '</span>'
+                    }
+                }
+            }
+            table.innerHTML += data
+
+        }
+    }
+
+</script>
+</body>
+</html>
